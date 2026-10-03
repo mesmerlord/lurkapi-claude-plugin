@@ -1,8 +1,8 @@
 {
   "name": "lurkapi",
   "displayName": "LurkAPI",
-  "version": "1.0.0",
-  "description": "Public social media data as clean JSON: profiles, posts, comments, transcripts and ad libraries from TikTok, Instagram, YouTube, Reddit, Facebook, X and more.",
+  "version": "1.0.1",
+  "description": "Social media scraper for Claude: scrape public profiles, posts, comments, transcripts and ads from TikTok, Instagram, YouTube, Reddit, X (Twitter), the Facebook Ad Library, LinkedIn and more into clean JSON, with no proxies or headless browsers to run.",
   "author": {
     "name": "Mesmer s.r.o.",
     "email": "support@lurkapi.com",
@@ -11,7 +11,7 @@
   "homepage": "https://lurkapi.com/docs",
   "repository": "https://github.com/mesmerlord/lurkapi-claude-plugin",
   "license": "MIT",
-  "keywords": ["social-media", "scraping", "tiktok", "instagram", "youtube", "reddit", "facebook-ads", "ad-library", "transcripts", "research"],
+  "keywords": ["social-media-scraper", "web-scraping", "scraper", "tiktok-scraper", "instagram-scraper", "youtube-scraper", "youtube-transcript", "reddit-scraper", "twitter-scraper", "facebook-ad-library", "ad-library", "social-media", "transcripts", "research"],
   "icon": "./logo.png",
   "documentationUrl": "https://lurkapi.com/docs#claude",
   "supportUrl": "https://github.com/mesmerlord/lurkapi-claude-plugin/issues",

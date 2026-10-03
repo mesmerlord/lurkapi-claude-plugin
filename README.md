@@ -1,10 +1,12 @@
 # LurkAPI for Claude
 
-[LurkAPI](https://lurkapi.com) turns public social media pages into clean JSON. This plugin connects Claude to it, so you can ask for a creator's profile, a video's transcript, a Reddit thread or the ads a brand is running, and get real data back in the conversation.
+[LurkAPI](https://lurkapi.com) is a social media scraping API. This plugin connects Claude to it, so you can scrape TikTok, Instagram, YouTube, Reddit, X (Twitter), Facebook and more from a conversation: a creator's profile, a video's transcript, a Reddit thread or the ads a brand is running come back as clean JSON.
+
+LurkAPI runs the scrapers, proxies and parsers, so there's no headless browser, proxy pool or blocked IP on your side. It scrapes public pages only and never logs in to anyone's account.
 
 ![LurkAPI](./logo.png)
 
-## What you can ask for
+## What you can scrape
 
 - **TikTok**: profiles, videos, transcripts, comments, hashtags, sounds, stories, lives, TikTok Shop products and the EU ad library
 - **Instagram**: profiles, posts, reels, comments and transcripts of reels
