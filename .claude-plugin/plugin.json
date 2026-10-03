@@ -1,7 +1,7 @@
 {
   "name": "lurkapi",
   "displayName": "LurkAPI",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Social media scraper for Claude: scrape public profiles, posts, comments, transcripts and ads from TikTok, Instagram, YouTube, Reddit, X (Twitter), the Facebook Ad Library, LinkedIn and more into clean JSON, with no proxies or headless browsers to run.",
   "author": {
     "name": "Mesmer s.r.o.",
@@ -11,19 +11,25 @@
   "homepage": "https://lurkapi.com/docs",
   "repository": "https://github.com/mesmerlord/lurkapi-claude-plugin",
   "license": "MIT",
-  "keywords": ["social-media-scraper", "web-scraping", "scraper", "tiktok-scraper", "instagram-scraper", "youtube-scraper", "youtube-transcript", "reddit-scraper", "twitter-scraper", "facebook-ad-library", "ad-library", "social-media", "transcripts", "research"],
+  "keywords": [
+    "social-media-scraper",
+    "web-scraping",
+    "scraper",
+    "tiktok-scraper",
+    "instagram-scraper",
+    "youtube-scraper",
+    "youtube-transcript",
+    "reddit-scraper",
+    "twitter-scraper",
+    "facebook-ad-library",
+    "ad-library",
+    "social-media",
+    "transcripts",
+    "research"
+  ],
   "icon": "./logo.png",
   "documentationUrl": "https://lurkapi.com/docs#claude",
   "supportUrl": "https://github.com/mesmerlord/lurkapi-claude-plugin/issues",
   "privacyPolicyUrl": "https://lurkapi.com/privacy",
-  "termsOfServiceUrl": "https://lurkapi.com/terms",
-  "userConfig": {
-    "api_key": {
-      "type": "string",
-      "title": "LurkAPI key",
-      "description": "Your lk_live_ key from https://lurkapi.com/dashboard. New accounts get 100 free credits.",
-      "required": true,
-      "sensitive": true
-    }
-  }
+  "termsOfServiceUrl": "https://lurkapi.com/terms"
 }

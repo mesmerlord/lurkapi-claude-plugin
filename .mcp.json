@@ -2,10 +2,7 @@
   "mcpServers": {
     "lurkapi": {
       "type": "http",
-      "url": "https://api.lurkapi.com/mcp",
-      "headers": {
-        "x-api-key": "${user_config.api_key}"
-      }
+      "url": "https://api.lurkapi.com/mcp"
     }
   }
 }
