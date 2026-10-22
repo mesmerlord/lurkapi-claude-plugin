@@ -8,21 +8,23 @@ LurkAPI runs the scrapers, proxies and parsers, so there's no headless browser, 
 
 ## What you can scrape
 
-- **TikTok**: profiles, videos, transcripts, comments, hashtags, sounds, stories, lives, TikTok Shop products and the EU ad library
-- **Instagram**: profiles, posts, reels, comments and transcripts of reels
+- **TikTok**: profiles, videos, transcripts, comments, hashtags, sounds, stories, lives, search, TikTok Shop products and stores, and the EU ad library
+- **Instagram**: profiles, posts, reels, comments, transcripts of reels, reel search and similar profiles
 - **YouTube**: videos, transcripts, comments, channels, Shorts and search
 - **Reddit**: subreddit feeds, search and full comment threads
-- **Facebook**: Meta Ad Library search, every ad an advertiser runs, pages and posts
-- **Google**: the Ads Transparency Center (advertisers and their ads)
-- **X (Twitter), Threads, Bluesky, Truth Social, Telegram, Snapchat, LinkedIn** (company pages and ad library) and **Linktree**
+- **Facebook**: Meta Ad Library search, every ad an advertiser runs, and public profiles, posts, events and comments
+- **Google**: the Ads Transparency Center, Maps places and reviews, News and autocomplete
+- **LinkedIn**: profiles, company pages and posts, jobs and the ad library
+- **X (Twitter), Threads, Bluesky, Truth Social, Telegram, Snapchat, eBay** and **Linktree**
+- **Any web page**: fetched, rendered or unblocked for you
 
-That's 60+ endpoints, all read-only. The [docs](https://lurkapi.com/docs) list every one with its parameters and a real response.
+That's 80+ endpoints, all read-only. The [docs](https://lurkapi.com/docs) list every one with its parameters and a real response.
 
 ## Set up
 
 1. Install the plugin.
-2. Connect LurkAPI when Claude asks (in Claude Code, run `/mcp` and pick LurkAPI). A LurkAPI page opens: sign in with Google or your email, or create a free account in the same step. New accounts get 100 free credits, and a balance below 25 is topped back up to 25 every day.
-3. Click **Allow**. Claude gets its own LurkAPI API key, named after it, so there's nothing to copy or paste.
+2. Sign in: in Claude Code, run `/mcp`, pick `plugin:lurkapi:lurkapi` and choose **Authenticate** (before your first sign-in it may say **Re-authenticate**). If you ask Claude something first, it tells you the same. A LurkAPI page opens in your browser: sign in with Google or your email, or create a free account in the same step. New accounts get 100 free credits, and a balance below 25 is topped back up to 25 every day.
+3. Click **Allow**. Claude gets its own LurkAPI API key, named after it, so there's nothing to copy or paste. Back in Claude Code, ask again: it doesn't retry a question it couldn't answer before you signed in.
 
 Then ask Claude things like:
 
@@ -31,7 +33,7 @@ Then ask Claude things like:
 - "Compare the follower counts of these five TikTok creators."
 - "Find Reddit threads from the last month about switching from Notion to Obsidian, and summarize the complaints."
 
-Claude finds the right endpoint with `find_endpoints` and runs it with `call_endpoint`, so the 60+ endpoints don't crowd your context.
+Each endpoint is its own tool, like `reddit_search` or `tiktok_profile`. Claude Code loads a tool's details only when it picks it, so 80+ tools don't crowd your context.
 
 ## Cost
 
