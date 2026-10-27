@@ -1,0 +1,16 @@
+{
+  "name": "lurkapi",
+  "description": "LurkAPI's plugin for Claude Code: social media research skills and the LurkAPI MCP server.",
+  "owner": {
+    "name": "Mesmer s.r.o.",
+    "email": "support@lurkapi.com"
+  },
+  "plugins": [
+    {
+      "name": "lurkapi",
+      "source": "./",
+      "description": "Social media research skills and the LurkAPI MCP server: brand lurks, ad library teardowns, Reddit research, creator vetting and video transcripts on live public data.",
+      "category": "research"
+    }
+  ]
+}

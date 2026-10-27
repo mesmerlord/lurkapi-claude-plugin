@@ -1,8 +1,8 @@
 {
   "name": "lurkapi",
   "displayName": "LurkAPI",
-  "version": "1.1.0",
-  "description": "Social media scraper for Claude: scrape public profiles, posts, comments, transcripts and ads from TikTok, Instagram, YouTube, Reddit, X (Twitter), the Facebook Ad Library, LinkedIn and more into clean JSON, with no proxies or headless browsers to run.",
+  "version": "1.2.0",
+  "description": "Social media scraper and research skills for Claude: scrape public profiles, posts, comments, transcripts and ads from TikTok, Instagram, YouTube, Reddit, X (Twitter), the Facebook Ad Library, LinkedIn and more into clean JSON, and run whole jobs like a brand lurk, an ad library teardown, Reddit research or creator vetting.",
   "author": {
     "name": "Mesmer s.r.o.",
     "email": "support@lurkapi.com",
@@ -25,7 +25,10 @@
     "ad-library",
     "social-media",
     "transcripts",
-    "research"
+    "research",
+    "competitor-research",
+    "influencer-vetting",
+    "agent-skills"
   ],
   "icon": "./logo.png",
   "documentationUrl": "https://lurkapi.com/docs#claude",

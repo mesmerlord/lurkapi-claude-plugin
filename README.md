@@ -1,53 +1,63 @@
-# LurkAPI for Claude
+# LurkAPI: social media research skills for AI agents
 
-[LurkAPI](https://lurkapi.com) is a social media scraping API. This plugin connects Claude to it, so you can scrape TikTok, Instagram, YouTube, Reddit, X (Twitter), Facebook and more from a conversation: a creator's profile, a video's transcript, a Reddit thread or the ads a brand is running come back as clean JSON.
+Ask for the outcome, not the endpoint. These skills teach Claude, Codex, Cursor and any agent that reads [Agent Skills](https://agentskills.io) to run whole research jobs on live public data: lurk a brand, tear down its ads across four ad libraries, mine Reddit, vet a creator, read any video, size up demand.
 
-LurkAPI runs the scrapers, proxies and parsers, so there's no headless browser, proxy pool or blocked IP on your side. It scrapes public pages only and never logs in to anyone's account.
+They run on [LurkAPI](https://lurkapi.com), which scrapes TikTok, Instagram, YouTube, Reddit, X (Twitter), Facebook, LinkedIn, Threads, Bluesky and more into clean JSON. No proxies, headless browsers or blocked IPs on your side. Public pages only: it never logs in to anyone's account.
 
 ![LurkAPI](./logo.png)
 
-## What you can scrape
+## Install
 
-- **TikTok**: profiles, videos, transcripts, comments, hashtags, sounds, stories, lives, search, TikTok Shop products and stores, and the EU ad library
-- **Instagram**: profiles, posts, reels, comments, transcripts of reels, reel search and similar profiles
-- **YouTube**: videos, transcripts, comments, channels, Shorts and search
-- **Reddit**: subreddit feeds, search and full comment threads
-- **Facebook**: Meta Ad Library search, every ad an advertiser runs, and public profiles, posts, events and comments
-- **Google**: the Ads Transparency Center, Maps places and reviews, News and autocomplete
-- **LinkedIn**: profiles, company pages and posts, jobs and the ad library
-- **X (Twitter), Threads, Bluesky, Truth Social, Telegram, Snapchat, eBay** and **Linktree**
-- **Any web page**: fetched, rendered or unblocked for you
+**Claude Code**: the plugin, with the skills and the LurkAPI MCP server.
 
-That's 80+ endpoints, all read-only. The [docs](https://lurkapi.com/docs) list every one with its parameters and a real response.
+```bash
+claude plugin marketplace add mesmerlord/lurkapi-claude-plugin && claude plugin install lurkapi@lurkapi
+```
 
-## Set up
+Then run `/mcp`, pick `plugin:lurkapi:lurkapi` and choose **Authenticate**. A LurkAPI page opens: sign in with Google or your email, or create a free account in the same step, and click **Allow**. Claude gets its own API key, named after it, so there's nothing to copy or paste.
 
-1. Install the plugin.
-2. Sign in: in Claude Code, run `/mcp`, pick `plugin:lurkapi:lurkapi` and choose **Authenticate** (before your first sign-in it may say **Re-authenticate**). If you ask Claude something first, it tells you the same. A LurkAPI page opens in your browser: sign in with Google or your email, or create a free account in the same step. New accounts get 100 free credits, and a balance below 25 is topped back up to 25 every day.
-3. Click **Allow**. Claude gets its own LurkAPI API key, named after it, so there's nothing to copy or paste. Back in Claude Code, ask again: it doesn't retry a question it couldn't answer before you signed in.
+**Claude and Cowork**: add **LurkAPI** from the directory in [Customize → Plugins](https://claude.ai/customize/plugins). It reaches Claude Code too.
 
-Then ask Claude things like:
+**Codex, Cursor, Gemini CLI, Copilot and others**: the skills, which call the API with curl.
 
-- "What ads is Gymshark running on Facebook right now? Summarize the angles."
-- "Get the transcript of this YouTube video and pull out the main claims."
-- "Compare the follower counts of these five TikTok creators."
-- "Find Reddit threads from the last month about switching from Notion to Obsidian, and summarize the complaints."
+```bash
+npx skills add mesmerlord/lurkapi-claude-plugin
+export LURKAPI_API_KEY=...   # from https://lurkapi.com/dashboard
+```
 
-Each endpoint is its own tool, like `reddit_search` or `tiktok_profile`. Claude Code loads a tool's details only when it picks it, so 80+ tools don't crowd your context.
+## Skills
+
+| Skill | Ask it | You get |
+| --- | --- | --- |
+| [`lurk`](skills/lurk/SKILL.md) | "Lurk Allbirds." | Whether a brand advertises right now on Meta and Google, what its live ads push, and its Facebook, Instagram and TikTok audience. Four calls, the run behind the LurkAPI dashboard. |
+| [`ad-research`](skills/ad-research/SKILL.md) | "Tear down Gymshark's ads." | Live ads from the Meta, Google, LinkedIn and TikTok libraries, the long-running winners, angles, verbatim hooks, offers, landing pages and tests to run. TikTok's EU library adds who each ad targeted and reached. |
+| [`reddit-research`](skills/reddit-research/SKILL.md) | "What does Reddit say about Notion vs Obsidian?" | The communities that discuss it, the most-argued threads, and the pains, alternatives, objections and exact phrases people use, each linked. |
+| [`creator-vetting`](skills/creator-vetting/SKILL.md) | "Should we sponsor @username?" | Median views, reach and engagement against the creator's own baseline, bought-follower and one-hit checks, sponsorship load, audience comments and a go or no-go. |
+| [`video-transcripts`](skills/video-transcripts/SKILL.md) | "What are this channel's last 10 videos about?" | Transcripts of YouTube videos and Shorts, TikToks and Instagram reels, turned into summaries, hooks, claims, quotes and scripts. |
+| [`demand-research`](skills/demand-research/SKILL.md) | "Is there demand for collagen gummies?" | What people type into Google and TikTok Shop, what sells on eBay and for how much, attention on TikTok and YouTube, Reddit's complaints and news momentum, with a verdict. |
+| [`lurkapi`](skills/lurkapi/SKILL.md) | Anything else | Which of the 80+ endpoints answers a question, with its params and price. |
+
+## Why these skills
+
+- **Real calls, checked.** Every tool, param, value and response field a skill names is checked against LurkAPI's registry before each release, so the plan an agent follows always matches the API.
+- **They know the price.** Each skill lists what its calls cost and budgets the run in calls; for big runs the agent checks your balance first and tells you the cost.
+- **Ad libraries nobody else chains.** Meta's Ad Library, Google's Ads Transparency Center, LinkedIn's Ad Library and TikTok's EU library, with targeting and reach where it's published.
+- **Made for agents.** Over MCP, results come trimmed (no nulls, one URL per image), long ones in parts. Over curl, the skills tell the agent which fields to keep.
+- **Fast.** On the busiest endpoints, the median answer takes 0.4 to 1.2 seconds; cached ones come back in tens of milliseconds.
 
 ## Cost
 
-Most calls cost 1 credit; each tool's description shows its price, and every result shows your remaining balance. A call that reaches the platform is charged even when the thing isn't found; server errors are free. Credit packs start at $9 for 10,000 credits and never expire. See [pricing](https://lurkapi.com/pricing).
+Most calls cost 1 credit; each skill's table gives the price of every call it makes, and every answer shows your balance. A call that reaches the platform is charged even when the thing isn't found; failures on our side are free. New accounts get 100 free credits, a balance below 25 tops back up to 25 every day, and packs start at $9 for 10,000 credits that never expire. See [pricing](https://lurkapi.com/pricing).
 
 ## Data
 
-The plugin has no local code. It registers one remote MCP server, `https://api.lurkapi.com/mcp`, which you connect by signing in to LurkAPI with OAuth. LurkAPI then creates an API key for Claude, which Claude sends with each call; revoke it in your [dashboard](https://lurkapi.com/dashboard) to disconnect. When Claude calls a tool, the tool's parameters (for example a username, a video URL or a search keyword) go to LurkAPI, which fetches the matching public pages and returns them as JSON. LurkAPI never logs in to anyone's account and returns only publicly available data.
+The plugin has no local code. It registers one remote MCP server, `https://api.lurkapi.com/mcp`, which you connect by signing in to LurkAPI with OAuth; LurkAPI then creates an API key for Claude, which you can revoke in your [dashboard](https://lurkapi.com/dashboard) to disconnect. The skills are instructions only: when an agent follows one, the parameters of each call (a username, a video URL, a search keyword) go to LurkAPI, which fetches the matching public pages and returns them as JSON. LurkAPI returns only publicly available data.
 
 LurkAPI logs each call (endpoint, parameters, result code, credits; never your key) for 14 days for support and abuse prevention, and doesn't keep the data it returned. See the [privacy policy](https://lurkapi.com/privacy) and [terms](https://lurkapi.com/terms).
 
 ## Support
 
-Email [support@lurkapi.com](mailto:support@lurkapi.com) or open an [issue](https://github.com/mesmerlord/lurkapi-claude-plugin/issues). LurkAPI is made by Mesmer s.r.o.
+Email [support@lurkapi.com](mailto:support@lurkapi.com) or open an [issue](https://github.com/mesmerlord/lurkapi-claude-plugin/issues). Docs for every endpoint: [lurkapi.com/docs](https://lurkapi.com/docs). LurkAPI is made by Mesmer s.r.o.
 
 ## License
 
