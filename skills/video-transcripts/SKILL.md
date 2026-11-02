@@ -40,7 +40,7 @@ List first, then transcribe only the videos that matter.
 
 - **YouTube:** `youtube_channel_videos(handle=<handle>, sort=latest)` (about 30 a page; `sort=popular` for the most viewed), or `youtube_channel_shorts(handle=<handle>)`. Then `youtube_transcript` on the chosen `url`s.
 - **TikTok:** `tiktok_profile_videos(handle=<handle>)`: 15 a page, newest first, with `stats.playCount`. Then `tiktok_transcript` on the chosen ones.
-- **Instagram:** `instagram_user_reels(username=<username>)` gives play counts, then `instagram_media_transcript(code=<code>)` per reel. At the speech-to-text price, ten reels cost several times ten TikToks: say the total first.
+- **Instagram:** `instagram_user_reels(username=<username>)` gives play counts, then `instagram_media_transcript(code=<code>)` per reel. At the speech-to-text price, ten reels cost more than ten captioned TikToks: say the total first.
 
 To find a creator's best videos rather than their latest, rank the list by views and take the top few, or the ones far above the creator's median.
 
@@ -73,9 +73,9 @@ Across many videos, compare hooks, recurring topics and phrases, video length ag
 | Tool | REST path | Credits |
 | --- | --- | --- |
 | [`youtube_transcript`](https://lurkapi.com/docs/youtube/transcript.md) | `/v1/youtube/video/transcript` | 1 credit |
-| [`tiktok_transcript`](https://lurkapi.com/docs/tiktok/transcript.md) | `/v1/tiktok/video/transcript` | 1 credit; 5 if speech-to-text runs |
+| [`tiktok_transcript`](https://lurkapi.com/docs/tiktok/transcript.md) | `/v1/tiktok/video/transcript` | 1 credit; 2 if speech-to-text runs |
 | [`tiktok_video`](https://lurkapi.com/docs/tiktok/video.md) | `/v2/tiktok/video` | 1 credit |
-| [`instagram_media_transcript`](https://lurkapi.com/docs/instagram/media-transcript.md) | `/v2/instagram/media/transcript` | 1 credit; 5 if speech-to-text runs |
+| [`instagram_media_transcript`](https://lurkapi.com/docs/instagram/media-transcript.md) | `/v2/instagram/media/transcript` | 1 credit; 2 if speech-to-text runs |
 | [`youtube_channel_videos`](https://lurkapi.com/docs/youtube/channel-videos.md) | `/v1/youtube/channel-videos` | 1 credit |
 | [`youtube_channel_shorts`](https://lurkapi.com/docs/youtube/channel-shorts.md) | `/v1/youtube/channel/shorts` | 1 credit |
 | [`tiktok_profile_videos`](https://lurkapi.com/docs/tiktok/profile-videos.md) | `/v3/tiktok/profile/videos` | 1 credit |

@@ -18,7 +18,15 @@ Then run `/mcp`, pick `plugin:lurkapi:lurkapi` and choose **Authenticate**. A Lu
 
 **Claude and Cowork**: add **LurkAPI** from the directory in [Customize → Plugins](https://claude.ai/customize/plugins). It reaches Claude Code too.
 
-**Codex, Cursor, Gemini CLI, Copilot and others**: the skills, which call the API with curl.
+**Gemini CLI**: the extension, with the skills and the MCP server. Run `/mcp auth lurkapi` in Gemini CLI to sign in.
+
+```bash
+gemini extensions install https://github.com/mesmerlord/lurkapi-claude-plugin
+```
+
+**Kiro**: in the Powers panel, choose **Add Custom Power**, then **Import power from GitHub** with `https://github.com/mesmerlord/lurkapi-claude-plugin`.
+
+**Codex, Cursor, Copilot and others**: the skills, which call the API with curl.
 
 ```bash
 npx skills add mesmerlord/lurkapi-claude-plugin

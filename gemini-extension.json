@@ -1,0 +1,10 @@
+{
+  "name": "lurkapi",
+  "version": "1.3.0",
+  "description": "Social media research skills and the LurkAPI MCP server: public profiles, posts, comments, transcripts and ads from TikTok, Instagram, YouTube, Reddit, X, LinkedIn and more, as JSON. Paid per call, with 100 free credits at signup.",
+  "mcpServers": {
+    "lurkapi": {
+      "httpUrl": "https://api.lurkapi.com/mcp"
+    }
+  }
+}

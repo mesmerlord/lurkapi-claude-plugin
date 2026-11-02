@@ -62,7 +62,7 @@ Each line: the call (`?` marks an optional param), its REST path, its price when
 
 - `tiktok_profile(handle)` · `/v1/tiktok/profile`. A creator's bio, avatar, verification and exact follower, like and video counts.
 - `tiktok_video(url, get_transcript?, cdn_url?)` · `/v2/tiktok/video`. One video or photo post: caption, stats, author, sound, hashtags and a playable MP4 URL.
-- `tiktok_transcript(url, language?, use_ai_as_fallback?, max_credits?)` · `/v1/tiktok/video/transcript` · 1 credit; 5 if speech-to-text runs. What's said in a video, from TikTok's captions: WEBVTT with timestamps plus plain text.
+- `tiktok_transcript(url, language?, use_ai_as_fallback?, max_credits?)` · `/v1/tiktok/video/transcript` · 1 credit; 2 if speech-to-text runs. What's said in a video, from TikTok's captions: WEBVTT with timestamps plus plain text.
 - `tiktok_profile_videos(handle, max_cursor?)` · `/v3/tiktok/profile/videos`. A creator's videos and photo posts, newest first, up to 15 per page.
 - `tiktok_comments(url, cursor?)` · `/v1/tiktok/video/comments`. A video's top-level comments, most relevant first, with like and reply counts.
 - `tiktok_comment_replies(url, comment_id, cursor?)` · `/v1/tiktok/video/comment/replies`. The replies under one comment, with their likes and authors.
@@ -130,7 +130,7 @@ Each line: the call (`?` marks an optional param), its REST path, its price when
 - `instagram_post(code?, url?)` · `/v1/instagram/post`. A public photo, carousel, video or reel with its caption and counts.
 - `instagram_post_comments(code?, url?, first?, after?)` · `/v2/instagram/post/comments`. A page of public comments with authors, timestamps and likes.
 - `instagram_user_reels(username?, url?, first?, after?)` · `/v1/instagram/user/reels`. A page of public reel previews with play, like and comment counts.
-- `instagram_media_transcript(code?, url?, max_credits?)` · `/v2/instagram/media/transcript` · 1 credit; 5 if speech-to-text runs. The words spoken in a public Instagram reel or video, as text.
+- `instagram_media_transcript(code?, url?, max_credits?)` · `/v2/instagram/media/transcript` · 1 credit; 2 if speech-to-text runs. The words spoken in a public Instagram reel or video, as text.
 - `instagram_reels_search(query, cursor?)` · `/v2/instagram/reels/search`. Public reels Instagram ranks for a keyword, with plays, likes, comments and captions.
 - `instagram_similar_profiles(username?, url?)` · `/v1/instagram/profile/similar`. The accounts Instagram suggests alongside a public profile.
 
@@ -155,13 +155,13 @@ Each line: the call (`?` marks an optional param), its REST path, its price when
 
 ### Web
 
-- `web_scrape(url, format?, main?, render?, proxy?, country?, captcha?, wait_for?, wait?, max_credits?)` · `/v1/web/scrape` · 1 credit; +3 if a browser renders it, +4 if it needs a residential IP, +13 if a browser renders it on a residential IP, +10 if a captcha is solved. Any public page, trying the cheapest step first and stepping up only if the site blocks it. 1–24 credits.
+- `web_scrape(url, format?, main?, render?, proxy?, country?, captcha?, wait_for?, wait?, max_credits?)` · `/v1/web/scrape` · 1 credit; +3 if a browser on separate IPs gets it, +4 if it needs a residential IP, +13 if a browser renders it on a residential IP, +10 if a captcha is solved. Any public page, trying the cheapest step first and stepping up only if the site blocks it. 1–24 credits.
 - `web_fetch(url, format?, main?)` · `/v1/web/fetch`. A page from one plain request, without running JavaScript. The cheapest step. 1 credit.
-- `web_render(url, format?, main?, captcha?, wait_for?, wait?, max_credits?)` · `/v1/web/render` · 4 credits; 14 if a captcha is solved. The page as a real Chrome browser shows it, after its JavaScript runs. Gets past JavaScript challenges. 4 credits.
+- `web_render(url, format?, main?, captcha?, wait_for?, wait?, max_credits?)` · `/v1/web/render` · 1 credit; 11 if a captcha is solved. The page as a real Chrome browser shows it, after its JavaScript runs. Gets past JavaScript challenges. 1 credit.
 - `web_unblock(url, format?, main?)` · `/v1/web/unblock` · 4 credits. Pages from sites that block our usual IPs (DataDome and the like), fetched by a browser on separate IPs. 4 credits.
 - `web_residential(url, format?, main?, country?)` · `/v1/web/residential` · 5 credits. A page from a residential IP in the country you pick, without running JavaScript. 5 credits.
 - `web_render_residential(url, format?, main?, country?, captcha?, wait_for?, wait?, max_credits?)` · `/v1/web/render-residential` · 14 credits; 24 if a captcha is solved. The page as a real Chrome browser on a residential IP shows it, for sites that block every other step. 14 credits.
-- `web_custom(url, steps, format?, main?, country?, captcha?, wait_for?, wait?, max_credits?)` · `/v1/web/custom` · 1 credit; +3 if a browser renders it, +4 if it needs a residential IP, +13 if a browser renders it on a residential IP, +10 if a captcha is solved. A page from the steps you choose, tried in your order. You pay only for the one that got the page.
+- `web_custom(url, steps, format?, main?, country?, captcha?, wait_for?, wait?, max_credits?)` · `/v1/web/custom` · 1 credit; +3 if a browser on separate IPs gets it, +4 if it needs a residential IP, +13 if a browser renders it on a residential IP, +10 if a captcha is solved. A page from the steps you choose, tried in your order. You pay only for the one that got the page.
 
 ### Account
 

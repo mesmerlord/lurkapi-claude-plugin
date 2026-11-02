@@ -110,7 +110,7 @@ One platform is about 3 to 5 calls (profile, two pages of posts, a page or two o
 | [`tiktok_comments`](https://lurkapi.com/docs/tiktok/comments.md) | `/v1/tiktok/video/comments` | 1 credit |
 | [`instagram_post_comments`](https://lurkapi.com/docs/instagram/post-comments.md) | `/v2/instagram/post/comments` | 1 credit |
 | [`youtube_comments`](https://lurkapi.com/docs/youtube/comments.md) | `/v1/youtube/video/comments` | 1 credit |
-| [`tiktok_transcript`](https://lurkapi.com/docs/tiktok/transcript.md) | `/v1/tiktok/video/transcript` | 1 credit; 5 if speech-to-text runs |
+| [`tiktok_transcript`](https://lurkapi.com/docs/tiktok/transcript.md) | `/v1/tiktok/video/transcript` | 1 credit; 2 if speech-to-text runs |
 | [`youtube_transcript`](https://lurkapi.com/docs/youtube/transcript.md) | `/v1/youtube/video/transcript` | 1 credit |
 
 Each tool's link opens its docs as markdown: every param and its values, and a real response.
