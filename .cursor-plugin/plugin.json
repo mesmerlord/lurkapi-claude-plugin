@@ -1,6 +1,6 @@
 {
   "name": "lurkapi",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Social media research skills and the LurkAPI MCP server: scrape public profiles, posts, comments, transcripts and ads from TikTok, Instagram, YouTube, Reddit, X (Twitter), the Facebook Ad Library, LinkedIn and more into clean JSON, and run whole jobs like a brand lurk, an ad library teardown, Reddit research or creator vetting. Paid per call, with 100 free credits at signup.",
   "author": {
     "name": "Mesmer s.r.o.",

@@ -61,7 +61,7 @@ Most calls cost 1 credit; each skill's table gives the price of every call it ma
 
 The plugin has no local code. It registers one remote MCP server, `https://api.lurkapi.com/mcp`, which you connect by signing in to LurkAPI with OAuth; LurkAPI then creates an API key for Claude, which you can revoke in your [dashboard](https://lurkapi.com/dashboard) to disconnect. The skills are instructions only: when an agent follows one, the parameters of each call (a username, a video URL, a search keyword) go to LurkAPI, which fetches the matching public pages and returns them as JSON. LurkAPI returns only publicly available data.
 
-LurkAPI logs each call (endpoint, parameters, result code, credits; never your key) for 14 days for support and abuse prevention, and doesn't keep the data it returned. See the [privacy policy](https://lurkapi.com/privacy) and [terms](https://lurkapi.com/terms).
+LurkAPI logs each call (endpoint, parameters, result code, credits; never your key) and what it returned (up to its first megabyte), so you can open any recent call in your dashboard. The log is deleted after 14 days and the responses a day later. See the [privacy policy](https://lurkapi.com/privacy) and [terms](https://lurkapi.com/terms).
 
 ## Support
 
